@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React - Template</title>
+    <script src="../../js/react.min.js"></script>
+    <script src="../../js/react-dom.min.js"></script>
+    <script src="../../js/browser.min.js"></script>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script type="text/babel">
+        var Comment = React.createClass({
+            add : function () {
+                alert('add');
+            },
+            remove : function () {
+                alert('remove');
+            },
+            render : function () {
+                return (<div>
+                    <div className={this.props.name}>{this.props.children}</div>
+                    <button onClick={this.add}>Add</button>
+                    <button onClick={this.remove}>Remove</button>
+                </div>);
+            }
+            
+        });
+
+        ReactDOM.render(
+            <div>
+                <Comment name="hello">Comment1</Comment>
+                <Comment name="hello">Comment2</Comment>
+                <Comment name="hello">Comment3</Comment>
+            </div>,
+            document.getElementById('container')
+        );
+    </script>
+
+</body>
+</html>
