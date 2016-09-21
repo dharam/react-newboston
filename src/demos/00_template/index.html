@@ -30,12 +30,28 @@
             
         });
 
+        var CommentBox = React.createClass({
+            getInitialState : function () {
+                return {
+                    comments : [
+                        'First Comment',
+                        'Second Comment',
+                        'Third Comment'
+                    ]    
+                }
+            },
+            eachComment : function (comment, i) {
+                return (<Comment index={i}>{comment}</Comment>);
+            },
+            render : function () {
+                return (
+                    <div className="board">{this.state.comments.map(this.eachComment)}</div>
+                );
+            }
+        });
+
         ReactDOM.render(
-            <div>
-                <Comment name="hello">Comment1</Comment>
-                <Comment name="hello">Comment2</Comment>
-                <Comment name="hello">Comment3</Comment>
-            </div>,
+            <CommentBox/>,
             document.getElementById('container')
         );
     </script>
